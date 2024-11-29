@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Documentos - Plataforma Aduanera</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/css/all.css" />
+  </head>
+
+  <body>
+    <div class="dashboard-container">
+      <!-- Menú lateral -->
+      <aside class="sidebar">
+        <h2><i class="fa-solid fa-warehouse"></i> Plataforma Aduanera</h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="/dashboard"><i class="fa-solid fa-house"></i> Inicio</a>
+            </li>
+            <li>
+              <a href="/cotizaciones"><i class="fa-solid fa-file-invoice-dollar"></i> Cotizaciones</a>
+            </li>
+            <li>
+              <a href="/operaciones"><i class="fa-solid fa-boxes-stacked"></i> Operaciones</a>
+            </li>
+            <li>
+              <a href="/documentos" class="active"><i class="fa-solid fa-folder-open"></i> Documentos</a>
+            </li>
+            <li>
+              <a href="/reportes"><i class="fa-solid fa-chart-bar"></i> Reportes</a>
+            </li>
+            <li>
+              <a href="/configuracion"><i class="fa-solid fa-gear"></i> Configuración</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Contenido principal -->
+      <main class="main-content">
+        <header>
+          <h1><i class="fa-solid fa-folder-open"></i> Gestión de Documentos</h1>
+          <p>
+            <i class="fa-solid fa-info-circle"></i> Administra los documentos relacionados con tus operaciones.
+          </p>
+        </header>
+
+        <!-- Filtros de búsqueda -->
+        <section class="filters">
+          <form class="filter-form" method="GET" action="/documentos">
+            <label for="tipo"><i class="fa-solid fa-filter"></i> Tipo:</label>
+            <select id="tipo" name="tipo">
+              <option value="all">Todos</option>
+              <option value="factura">Factura</option>
+              <option value="certificado">Certificado</option>
+            </select>
+
+            <label for="fecha-inicio"><i class="fa-solid fa-calendar"></i> Desde:</label>
+            <input type="date" id="fecha-inicio" name="fecha_inicio" />
+
+            <label for="fecha-fin"><i class="fa-solid fa-calendar"></i> Hasta:</label>
+            <input type="date" id="fecha-fin" name="fecha_fin" />
+
+            <button type="submit"><i class="fa-solid fa-search"></i> Buscar</button>
+            <a href="/documentos" class="action-button reset"><i class="fa-solid fa-times"></i> Limpiar Filtros</a>
+          </form>
+        </section>
+
+        <!-- Lista de operaciones con documentos -->
+        <section class="documents-list">
+          <h2>Operaciones y Documentos</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>ID Operación</th>
+                <th>Descripción</th>
+                <th>Total Documentos</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for operacion in operaciones %}
+                <tr>
+                  <td>{{ operacion.id_operacion }}</td>
+                  <td>{{ operacion.descripcion }}</td>
+                  <td>{{ operacion.total_documentos }}</td>
+                  <td>
+                    <a href="/documentos/{{ operacion.id_operacion }}" class="action-button view"><i class="fa-solid fa-eye"></i> Ver Documentos</a>
+                  </td>
+                </tr>
+              {% else %}
+                <tr>
+                  <td colspan="4" style="text-align: center;">No hay operaciones con documentos asociados.</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Botones de exportación -->
+        <div class="export-buttons">
+          <a href="/documentos/exportar?formato=csv" class="action-button export"><i class="fa-solid fa-file-csv"></i> Exportar CSV</a>
+          <a href="/documentos/exportar?formato=xlsx" class="action-button export"><i class="fa-solid fa-file-excel"></i> Exportar Excel</a>
+          <a href="/documentos/exportar?formato=pdf" class="action-button export"><i class="fa-solid fa-file-pdf"></i> Exportar PDF</a>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

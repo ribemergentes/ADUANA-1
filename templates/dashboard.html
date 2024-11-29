@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Plataforma Aduanera</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="stylesheet" href="static/css/all.css" /> <!-- Ruta de FontAwesome -->
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2><i class="fa-solid fa-warehouse"></i> Plataforma Aduanera</h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="/dashboard"><i class="fa-solid fa-house"></i> Inicio</a>
+            </li>
+            <li>
+              <a href="/cotizaciones"><i class="fa-solid fa-file-invoice-dollar"></i> Cotizaciones</a>
+            </li>
+            <li>
+              <a href="/operaciones"><i class="fa-solid fa-boxes-stacked"></i> Operaciones</a>
+            </li>
+            <li>
+              <a href="/documentos"><i class="fa-solid fa-folder-open"></i> Documentos</a>
+            </li>
+            <li>
+              <a href="/reportes"><i class="fa-solid fa-chart-bar"></i> Reportes</a>
+            </li>
+            <li>
+              <a href="/configuracion"><i class="fa-solid fa-gear"></i> Configuración</a>
+            </li>
+            <li>
+              <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <header>
+          <h1><i class="fa-solid fa-tachometer-alt"></i> Bienvenido, {{ nombre }}</h1>
+          <p>
+            <i class="fa-solid fa-info-circle"></i> Aquí encontrarás un resumen de tus actividades aduaneras.
+          </p>
+        </header>
+
+        <!-- Widgets Section -->
+        <section class="widgets">
+          <div class="widget">
+            <i class="fa-solid fa-box-open"></i>
+            <p>
+              Operaciones en curso: <strong>{{ operaciones_en_curso }}</strong>
+            </p>
+          </div>
+          <div class="widget">
+            <i class="fa-solid fa-file-signature"></i>
+            <p>
+              Cotizaciones este mes: <strong>{{ cotizaciones_mes }}</strong>
+            </p>
+          </div>
+          <div class="widget">
+            <i class="fa-solid fa-clock"></i>
+            <p>
+              Tiempo promedio de gestión: <strong>{{ tiempo_promedio }} días</strong>
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

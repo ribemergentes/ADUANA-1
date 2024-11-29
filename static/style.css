@@ -1,0 +1,1162 @@
+/* Reset */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fc;
+}
+
+/* Contenedor de login */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e9eff6;
+}
+
+/* Tarjeta de login */
+.login-card {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 350px;
+}
+
+.login-card h1 {
+  color: #0047ab;
+  margin-bottom: 10px;
+}
+
+.login-card p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.login-card label {
+  display: block;
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0047ab;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-card button:hover {
+  background-color: #003580;
+}
+
+.login-card a {
+  color: #0047ab;
+  text-decoration: none;
+}
+
+.login-card a:hover {
+  text-decoration: underline;
+}
+/* No hay cambios significativos para los estilos base del login */
+
+/* Iconos de FontAwesome */
+label i {
+  margin-right: 8px;
+  color: #0047ab;
+}
+
+button i {
+  margin-right: 8px;
+}
+
+/* 222 */
+
+/* Contenedor del dashboard */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #0047ab;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Contenido principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f4f7fc;
+}
+
+.main-content header {
+  margin-bottom: 20px;
+}
+
+.main-content .widgets {
+  display: flex;
+  gap: 15px;
+}
+
+.widget {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 1;
+}
+
+/* Ajustes para los íconos del menú */
+.sidebar ul li a i {
+  margin-right: 10px;
+}
+
+/* Widgets con íconos */
+.widget i {
+  font-size: 24px;
+  color: #0047ab;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Estilo del formulario de cotización */
+.quotation-form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.quotation-form .form-group {
+  margin-bottom: 15px;
+}
+
+.quotation-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.quotation-form label i {
+  color: #0047ab;
+  margin-right: 8px;
+}
+
+.quotation-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.quotation-form .submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0047ab;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quotation-form .submit-button i {
+  margin-right: 8px;
+}
+
+.quotation-form .submit-button:hover {
+  background-color: #003580;
+}
+
+/* 3 operations */
+
+/* Filtros */
+.filters {
+  background: white;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filters label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.filters select,
+.filters input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 15px;
+}
+
+.filters button {
+  background-color: #0047ab;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #003580;
+}
+
+/* Tabla de operaciones */
+.operations-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.operations-list th,
+.operations-list td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.operations-list th {
+  background-color: #0047ab;
+  color: white;
+}
+
+.operations-list tr:hover {
+  background-color: #f4f7fc;
+}
+
+.operations-list .status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-align: center;
+  color: white;
+}
+
+.status.in-progress {
+  background-color: #ffc107;
+}
+
+.status.completed {
+  background-color: #28a745;
+}
+
+.status.pending {
+  background-color: #dc3545;
+}
+
+/* 4 documents */
+
+/* Estilo de la sección de carga */
+.upload-section {
+  background: white;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-form {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.upload-form input[type="file"] {
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.upload-form button {
+  background-color: #0047ab;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-form button:hover {
+  background-color: #003580;
+}
+
+/* Lista de documentos */
+.documents-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.documents-list th,
+.documents-list td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.documents-list th {
+  background-color: #0047ab;
+  color: white;
+}
+
+.documents-list td button {
+  margin-right: 10px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.documents-list td button i {
+  margin-right: 5px;
+}
+
+.documents-list td button:first-child {
+  background-color: #28a745;
+  color: white;
+}
+
+.documents-list td button:first-child:hover {
+  background-color: #218838;
+}
+
+.documents-list td button:last-child {
+  background-color: #dc3545;
+  color: white;
+}
+
+.documents-list td button:last-child:hover {
+  background-color: #c82333;
+}
+
+/* 5 reports */
+
+/* Filtros de reportes */
+.report-filters {
+  background: white;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.report-filters label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.report-filters select,
+.report-filters input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 15px;
+}
+
+.report-filters button {
+  background-color: #0047ab;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.report-filters button:hover {
+  background-color: #003580;
+}
+
+/* Vista previa de reportes */
+.report-preview {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.report-preview table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.report-preview th,
+.report-preview td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.report-preview th {
+  background-color: #0047ab;
+  color: white;
+}
+
+.report-preview td {
+  background-color: #f4f7fc;
+}
+
+/* Botones de exportación */
+.report-actions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.report-actions button {
+  background-color: #0047ab;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.report-actions button:hover {
+  background-color: #003580;
+}
+
+.report-actions button i {
+  margin-right: 8px;
+}
+
+/* 6 settings */
+
+/* Estilos generales para Configuración */
+.profile-settings,
+.notification-settings,
+.password-settings {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.profile-settings h2,
+.notification-settings h2,
+.password-settings h2 {
+  font-size: 20px;
+  color: #0047ab;
+  margin-bottom: 15px;
+}
+
+.profile-form label,
+.notification-form label,
+.password-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.profile-form input,
+.notification-form input,
+.password-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #0047ab;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #003580;
+}
+
+button i {
+  margin-right: 8px;
+}
+
+/* cotizaciones */
+
+.cotizaciones-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cotizaciones-list th,
+.cotizaciones-list td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.cotizaciones-list th {
+  background-color: #0047ab;
+  color: white;
+}
+
+.action-button {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+}
+
+.action-button.edit {
+  background-color: #ffc107;
+}
+.action-button.accept {
+  background-color: #25850d;
+}
+
+.action-button.delete {
+  background-color: #dc3545;
+}
+/* mensaje de exito */
+
+.success-message {
+  margin: 20px auto;
+  padding: 10px 15px;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.success-message i {
+  font-size: 18px;
+}
+
+/* Dropdown para cambiar estado */
+.estado-dropdown {
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+/* Botón para actualizar estado */
+.action-button.update {
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.action-button.update:hover {
+  background-color: #138496;
+}
+
+/* Filtros */
+.filters {
+  background: white;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filters label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.filters select,
+.filters input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 15px;
+}
+
+.filters button {
+  background-color: #0047ab;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.filters button:hover {
+  background-color: #003580;
+}
+
+/* Tabla de operaciones */
+.operations-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.operations-list th,
+.operations-list td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.operations-list th {
+  background-color: #0047ab;
+  color: white;
+}
+
+.operations-list .status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-align: center;
+  color: white;
+}
+
+.status.pendiente {
+  background-color: #ffc107;
+}
+
+.status.en-progreso {
+  background-color: #17a2b8;
+}
+
+.status.completado {
+  background-color: #28a745;
+}
+
+/* Botones de acciones */
+.action-button {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+  margin-right: 5px;
+}
+
+.action-button.view {
+  background-color: #17a2b8;
+}
+
+.action-button.edit {
+  background-color: #ffc107;
+}
+
+.action-button.delete {
+  background-color: #dc3545;
+}
+
+.action-button.update {
+  background-color: #28a745;
+}
+
+.action-button:hover {
+  opacity: 0.9;
+}
+
+/* Estilos de filtros */
+.filters {
+  background: white;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filters label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.filters select,
+.filters input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 15px;
+}
+
+.filters button {
+  background-color: #0047ab;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #003580;
+}
+
+/* Tabla de operaciones */
+.operations-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.operations-list th,
+.operations-list td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.operations-list th {
+  background-color: #0047ab;
+  color: white;
+}
+
+.operations-list tr:hover {
+  background-color: #f4f7fc;
+}
+
+/* Estados */
+.status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-align: center;
+  color: white;
+}
+
+.status.pending {
+  background-color: #ffc107;
+}
+
+.status.in-progress {
+  background-color: #17a2b8;
+}
+
+.status.completed {
+  background-color: #28a745;
+}
+
+/* Botones */
+.action-button {
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+  margin-right: 5px;
+}
+
+.action-button.view {
+  background-color: #007bff;
+}
+
+.action-button.update {
+  background-color: #17a2b8;
+}
+
+.action-button.delete {
+  background-color: #dc3545;
+}
+
+.action-button:hover {
+  opacity: 0.9;
+}
+
+/* Dropdown */
+.estado-dropdown {
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+}
+
+/* ESTILO PARA BOTON LIMPIAR */
+
+.action-button.reset {
+  background-color: #6c757d;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.action-button.reset:hover {
+  background-color: #5a6268;
+}
+
+/* CSS para la Navegación de Páginas */
+
+.pagination {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.page-link {
+  background-color: #0047ab;
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin: 0 5px;
+  display: inline-block;
+}
+
+.page-link:hover {
+  background-color: #003580;
+}
+
+.pagination span {
+  margin: 0 10px;
+}
+
+/* CSS para el Botón de Exportación */
+.action-button.export {
+  background-color: #28a745;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.action-button.export:hover {
+  background-color: #218838;
+}
+/* Estilo CSS para el Botón PDF */
+
+.action-button.export-pdf {
+  background-color: #dc3545;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.action-button.export-pdf:hover {
+  background-color: #c82333;
+}
+.action-button.export-excel {
+  background-color: #28037e;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.action-button.export-excel:hover {
+  background-color: #021566;
+}
+
+/* mensaje de notificacion */
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px 15px;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px 15px;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  margin: 20px 0;
+  font-size: 14px;
+}
+/* Estilos CSS para la Vista de Detalles */
+.details-section {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.details-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.details-row label {
+  font-weight: bold;
+  color: #0047ab;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.details-row span {
+  color: #333;
+}
+
+.action-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.action-button.back {
+  background-color: #6c757d;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.action-button.back:hover {
+  background-color: #5a6268;
+}
+
+/* Carga de documentos */
+.upload-section {
+  background: white;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-form {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.upload-form input[type="file"] {
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.upload-form button {
+  background-color: #0047ab;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.upload-form button:hover {
+  background-color: #003580;
+}
+
+/* Lista de documentos */
+.documents-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.documents-list th,
+.documents-list td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.documents-list th {
+  background-color: #0047ab;
+  color: white;
+}
+
+.documents-list td button {
+  margin-right: 10px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.documents-list td a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.documents-list td a.download {
+  background-color: #28a745;
+}
+
+.documents-list td a.download:hover {
+  background-color: #218838;
+}
+
+.documents-list td button.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.documents-list td button.delete:hover {
+  background-color: #c82333;
+}
+
+/* documentos */
+
+.documents-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.documents-list th,
+.documents-list td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.documents-list th {
+  background-color: #0047ab;
+  color: white;
+}
+
+.documents-list td button {
+  padding: 8px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.documents-list td a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.documents-list td a.download {
+  background-color: #28a745;
+}
+
+.documents-list td a.download:hover {
+  background-color: #218838;
+}
+
+.documents-list td button.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.documents-list td button.delete:hover {
+  background-color: #c82333;
+}

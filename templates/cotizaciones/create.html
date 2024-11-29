@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Cotización - Plataforma Aduanera</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/css/all.css" />
+  </head>
+
+  <body>
+    <div class="dashboard-container">
+      <!-- Menú lateral -->
+      <aside class="sidebar">
+        <h2><i class="fa-solid fa-warehouse"></i> Plataforma Aduanera</h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="/dashboard"><i class="fa-solid fa-house"></i> Inicio</a>
+            </li>
+            <li>
+              <a href="/cotizaciones"><i class="fa-solid fa-file-invoice-dollar"></i> Cotizaciones</a>
+            </li>
+            <li>
+              <a href="/operaciones"><i class="fa-solid fa-boxes-stacked"></i> Operaciones</a>
+            </li>
+            <li>
+              <a href="/documentos"><i class="fa-solid fa-folder-open"></i> Documentos</a>
+            </li>
+            <li>
+              <a href="/reportes"><i class="fa-solid fa-chart-bar"></i> Reportes</a>
+            </li>
+            <li>
+              <a href="/configuracion"><i class="fa-solid fa-gear"></i> Configuración</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Contenido principal -->
+      <main class="main-content">
+        <header>
+          <h1><i class="fa-solid fa-file-circle-plus"></i> Nueva Cotización</h1>
+          <p>
+            <i class="fa-solid fa-info-circle"></i> Completa el formulario para generar una nueva cotización
+          </p>
+        </header>
+        <form class="quotation-form" method="POST" action="/cotizaciones/save">
+          <div class="form-group">
+            <label for="product-name"><i class="fa-solid fa-box"></i> Nombre del Producto</label>
+            <input type="text" id="product-name" name="producto" placeholder="Ejemplo: Maquinaria industrial" required />
+          </div>
+          <div class="form-group">
+            <label for="origin"><i class="fa-solid fa-globe"></i> País de Origen</label>
+            <input type="text" id="origin" name="pais_origen" placeholder="Ejemplo: China" required />
+          </div>
+          <div class="form-group">
+            <label for="weight"><i class="fa-solid fa-weight-hanging"></i> Peso (kg)</label>
+            <input type="number" id="weight" name="peso" step="0.01" placeholder="Ejemplo: 1500" required />
+          </div>
+          <div class="form-group">
+            <label for="dimensions"><i class="fa-solid fa-ruler-combined"></i> Dimensiones (cm)</label>
+            <input type="text" id="dimensions" name="dimensiones" placeholder="Ejemplo: 120x80x100" required />
+          </div>
+          <div class="form-group">
+            <label for="value"><i class="fa-solid fa-dollar-sign"></i> Valor Declarado ($)</label>
+            <input type="number" id="value" name="valor_declarado" step="0.01" placeholder="Ejemplo: 25000" required />
+          </div>
+          <button type="submit" class="submit-button"><i class="fa-solid fa-paper-plane"></i> Enviar Cotización</button>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

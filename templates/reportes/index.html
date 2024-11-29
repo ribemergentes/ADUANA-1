@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes - Plataforma Aduanera</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/css/all.css"> <!-- Ruta a FontAwesome Pro -->
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Menú lateral -->
+        <aside class="sidebar">
+            <h2><i class="fa-solid fa-warehouse"></i> Plataforma Aduanera</h2>
+            <nav>
+                <ul>
+                    <li><a href="/dashboard"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                    <li><a href="/cotizaciones"><i class="fa-solid fa-file-invoice-dollar"></i> Cotizaciones</a></li>
+                    <li><a href="/operaciones"><i class="fa-solid fa-boxes-stacked"></i> Operaciones</a></li>
+                    <li><a href="/documentos"><i class="fa-solid fa-folder-open"></i> Documentos</a></li>
+                    <li><a href="/reportes" class="active"><i class="fa-solid fa-chart-bar"></i> Reportes</a></li>
+                    <li><a href="/configuracion"><i class="fa-solid fa-gear"></i> Configuración</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <header>
+                <h1><i class="fa-solid fa-chart-bar"></i> Generación de Reportes</h1>
+                <p><i class="fa-solid fa-info-circle"></i> Filtra y descarga reportes personalizados de tus operaciones</p>
+            </header>
+
+            <!-- Filtros para reportes -->
+            <section class="report-filters">
+                <form class="filter-form" method="GET" action="/reportes">
+                    <label for="report-type"><i class="fa-solid fa-filter"></i> Tipo de Reporte:</label>
+                    <select id="report-type" name="tipo">
+                        <option value="operaciones" {% if tipo_reporte == "operaciones" %}selected{% endif %}>Operaciones</option>
+                        <option value="cotizaciones" {% if tipo_reporte == "cotizaciones" %}selected{% endif %}>Cotizaciones</option>
+                        <option value="documentos" {% if tipo_reporte == "documentos" %}selected{% endif %}>Documentos</option>
+                    </select>
+
+                    <label for="start-date"><i class="fa-solid fa-calendar"></i> Desde:</label>
+                    <input type="date" id="start-date" name="fecha_inicio" value="{{ fecha_inicio }}">
+
+                    <label for="end-date"><i class="fa-solid fa-calendar"></i> Hasta:</label>
+                    <input type="date" id="end-date" name="fecha_fin" value="{{ fecha_fin }}">
+
+                    <button type="submit"><i class="fa-solid fa-search"></i> Generar</button>
+                </form>
+            </section>
+
+            <!-- Tabla de vista previa -->
+            <section class="report-preview">
+                <h2><i class="fa-solid fa-table"></i> Vista Previa</h2>
+                {% if reporte %}
+                <table>
+                    <thead>
+                        <tr>
+                            {% for columna in reporte[0].keys() %}
+                            <th>{{ columna }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for fila in reporte %}
+                        <tr>
+                            {% for valor in fila.values() %}
+                            <td>{{ valor }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p>No hay datos disponibles para este reporte.</p>
+                {% endif %}
+            </section>
+
+            <!-- Opciones de exportación -->
+            <section class="report-actions">
+                <a href="/reportes/exportar?formato=pdf&tipo={{ tipo_reporte }}&fecha_inicio={{ fecha_inicio }}&fecha_fin={{ fecha_fin }}" class="action-button export">
+                    <i class="fa-solid fa-file-pdf"></i> Descargar PDF
+                </a>
+                <a href="/reportes/exportar?formato=xlsx&tipo={{ tipo_reporte }}&fecha_inicio={{ fecha_inicio }}&fecha_fin={{ fecha_fin }}" class="action-button export">
+                    <i class="fa-solid fa-file-excel"></i> Descargar Excel
+                </a>
+                <a href="/reportes/exportar?formato=csv&tipo={{ tipo_reporte }}&fecha_inicio={{ fecha_inicio }}&fecha_fin={{ fecha_fin }}" class="action-button export">
+                    <i class="fa-solid fa-file-csv"></i> Descargar CSV
+                </a>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

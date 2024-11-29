@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cotizaciones - Plataforma Aduanera</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/css/all.css" />
+  </head>
+
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2><i class="fa-solid fa-warehouse"></i> Plataforma Aduanera</h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="/dashboard"><i class="fa-solid fa-house"></i> Inicio</a>
+            </li>
+            <li>
+              <a href="/cotizaciones"><i class="fa-solid fa-file-invoice-dollar"></i> Cotizaciones</a>
+            </li>
+            <li>
+              <a href="/operaciones"><i class="fa-solid fa-boxes-stacked"></i> Operaciones</a>
+            </li>
+            <li>
+              <a href="/documentos"><i class="fa-solid fa-folder-open"></i> Documentos</a>
+            </li>
+            <li>
+              <a href="/reportes"><i class="fa-solid fa-chart-bar"></i> Reportes</a>
+            </li>
+            <li>
+              <a href="/configuracion"><i class="fa-solid fa-gear"></i> Configuración</a>
+            </li>
+            <li>
+              <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <header>
+          <h1><i class="fa-solid fa-file-invoice-dollar"></i> Cotizaciones</h1>
+          <p>Gestiona tus solicitudes de cotización aquí.</p>
+          <a href="/cotizaciones/create" class="button-link"><i class="fa-solid fa-plus"></i> Nueva Cotización</a>
+        </header>
+
+        <!-- Cotizaciones Table -->
+        <section class="cotizaciones-list">
+          <!-- Mensaje de éxito -->
+          {% if request.args.get('success') %}
+            <div class="success-message">
+              <i class="fa-solid fa-check-circle"></i> {{ request.args.get('success') }}
+            </div>
+          {% endif %}
+
+          <!-- Tabla de cotizaciones -->
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Producto</th>
+                <th>Peso</th>
+                <th>Dimensiones</th>
+                <th>Valor Declarado</th>
+                <th>Costo Total</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for cotizacion in cotizaciones %}
+                <tr>
+                  <td>{{ cotizacion.id_cotizacion }}</td>
+                  <td>{{ cotizacion.producto }}</td>
+                  <td>{{ cotizacion.peso }} kg</td>
+                  <td>{{ cotizacion.dimensiones }}</td>
+                  <td>${{ cotizacion.valor_declarado }}</td>
+                  <td>${{ cotizacion.costo_total }}</td>
+                  <td>
+                    <form action="/cotizaciones/aceptar/{{ cotizacion.id_cotizacion }}" method="POST" style="display: inline;">
+                      <button type="submit" class="action-button accept"><i class="fa-solid fa-check"></i> Aceptar</button>
+                    </form>
+
+                    <a href="/cotizaciones/edit/{{ cotizacion.id_cotizacion }}" class="action-button edit"><i class="fa-solid fa-pen"></i> Editar</a>
+                    <form action="/cotizaciones/delete/{{ cotizacion.id_cotizacion }}" method="POST" style="display: inline;">
+                      <button type="submit" class="action-button delete" onclick="return confirm('¿Estás seguro de que deseas eliminar esta cotización?');"><i class="fa-solid fa-trash"></i> Eliminar</button>
+                    </form>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

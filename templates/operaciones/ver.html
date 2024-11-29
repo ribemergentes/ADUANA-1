@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalles de Operación</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/css/all.css" />
+  </head>
+
+  <body>
+    <div class="dashboard-container">
+      <!-- Menú lateral -->
+      <aside class="sidebar">
+        <h2><i class="fa-solid fa-warehouse"></i> Plataforma Aduanera</h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="/dashboard"><i class="fa-solid fa-house"></i> Inicio</a>
+            </li>
+            <li>
+              <a href="/cotizaciones"><i class="fa-solid fa-file-invoice-dollar"></i> Cotizaciones</a>
+            </li>
+            <li>
+              <a href="/operaciones" class="active"><i class="fa-solid fa-boxes-stacked"></i> Operaciones</a>
+            </li>
+            <li>
+              <a href="/documentos"><i class="fa-solid fa-folder-open"></i> Documentos</a>
+            </li>
+            <li>
+              <a href="/reportes"><i class="fa-solid fa-chart-bar"></i> Reportes</a>
+            </li>
+            <li>
+              <a href="/configuracion"><i class="fa-solid fa-gear"></i> Configuración</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Contenido principal -->
+      <main class="main-content">
+        <header>
+          <h1><i class="fa-solid fa-info-circle"></i> Detalles de la Operación</h1>
+          <p>Aquí puedes ver los detalles de esta operación.</p>
+        </header>
+
+        <section class="details-section">
+          <div class="details-row">
+            <label><i class="fa-solid fa-id-badge"></i> ID Operación:</label>
+            <span>{{ operacion.id_operacion }}</span>
+          </div>
+          <div class="details-row">
+            <label><i class="fa-solid fa-box"></i> Descripción:</label>
+            <span>{{ operacion.descripcion }}</span>
+          </div>
+          <div class="details-row">
+            <label><i class="fa-solid fa-clock"></i> Estado:</label>
+            <span>{{ operacion.estado }}</span>
+          </div>
+          <div class="details-row">
+            <label><i class="fa-solid fa-calendar"></i> Fecha:</label>
+            <span>{{ operacion.fecha }}</span>
+          </div>
+        </section>
+
+        <div class="action-buttons">
+          <a href="/operaciones" class="action-button back"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

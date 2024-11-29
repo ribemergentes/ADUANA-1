@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentos de Operación {{ operacion.id_operacion }}</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/css/all.css" />
+  </head>
+
+  <body>
+    <div class="dashboard-container">
+      <!-- Menú lateral -->
+      <aside class="sidebar">
+        <h2><i class="fa-solid fa-folder-open"></i> Plataforma Aduanera</h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="/dashboard"><i class="fa-solid fa-house"></i> Inicio</a>
+            </li>
+            <li>
+              <a href="/cotizaciones"><i class="fa-solid fa-file-invoice-dollar"></i> Cotizaciones</a>
+            </li>
+            <li>
+              <a href="/operaciones"><i class="fa-solid fa-boxes-stacked"></i> Operaciones</a>
+            </li>
+            <li>
+              <a href="/documentos" class="active"><i class="fa-solid fa-folder-open"></i> Documentos</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Contenido principal -->
+      <main class="main-content">
+        <header>
+          <h1><i class="fa-solid fa-folder-open"></i> Documentos de la Operación {{ operacion.id_operacion }}</h1>
+          <p>
+            <i class="fa-solid fa-info-circle"></i> Detalles de la operación: {{ operacion.descripcion }}
+          </p>
+        </header>
+
+        <!-- Carga de documentos -->
+        <section class="upload-section">
+          <form class="upload-form" action="/documentos/subir/{{ operacion.id_operacion }}" method="POST" enctype="multipart/form-data">
+            <label for="file-upload"><i class="fa-solid fa-upload"></i> Subir Documento:</label>
+            <input type="file" id="file-upload" name="archivo" accept=".pdf,.docx,.xlsx,.jpg,.png" required />
+            <button type="submit"><i class="fa-solid fa-cloud-upload-alt"></i> Subir</button>
+          </form>
+        </section>
+
+        <!-- Lista de documentos -->
+        <section class="documents-list">
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre del Documento</th>
+                <th>Tipo</th>
+                <th>Fecha de Subida</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for documento in documentos %}
+                <tr>
+                  <td>{{ documento.nombre_archivo }}</td>
+                  <td>{{ documento.tipo or 'Desconocido' }}</td>
+                  <td>{{ documento.fecha_subida }}</td>
+                  <td>
+                    <a href="/documentos/descargar/{{ documento.id_documento }}" target="_blank" class="action-button download"><i class="fa-solid fa-download"></i> Descargar</a>
+                    <form action="/documentos/eliminar/{{ documento.id_documento }}/{{ operacion.id_operacion }}" method="POST" style="display: inline;">
+                      <button type="submit" class="action-button delete"><i class="fa-solid fa-trash"></i> Eliminar</button>
+                    </form>
+                  </td>
+                </tr>
+              {% else %}
+                <tr>
+                  <td colspan="4" style="text-align: center;">No hay documentos disponibles.</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

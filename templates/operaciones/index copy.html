@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operaciones - Plataforma Aduanera</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/css/all.css" />
+  </head>
+
+  <body>
+    <div class="dashboard-container">
+      <!-- Menú lateral -->
+      <aside class="sidebar">
+        <h2><i class="fa-solid fa-warehouse"></i> Plataforma Aduanera</h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="/dashboard"><i class="fa-solid fa-house"></i> Inicio</a>
+            </li>
+            <li>
+              <a href="/cotizaciones"><i class="fa-solid fa-file-invoice-dollar"></i> Cotizaciones</a>
+            </li>
+            <li>
+              <a href="/operaciones"><i class="fa-solid fa-boxes-stacked"></i> Operaciones</a>
+            </li>
+            <li>
+              <a href="/documentos"><i class="fa-solid fa-folder-open"></i> Documentos</a>
+            </li>
+            <li>
+              <a href="/reportes"><i class="fa-solid fa-chart-bar"></i> Reportes</a>
+            </li>
+            <li>
+              <a href="/configuracion"><i class="fa-solid fa-gear"></i> Configuración</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Contenido principal -->
+     <main class="main-content">
+    <header>
+        <h1><i class="fa-solid fa-boxes-stacked"></i> Gestión de Operaciones</h1>
+        <p><i class="fa-solid fa-info-circle"></i> Aquí puedes revisar y gestionar tus operaciones aduaneras</p>
+    </header>
+
+    <!-- Filtros de búsqueda -->
+    <!-- Filtros de búsqueda -->
+<section class="filters">
+    <form class="filter-form" method="GET" action="/operaciones">
+        <label for="status"><i class="fa-solid fa-filter"></i> Estado:</label>
+        <select id="status" name="estado">
+            <option value="all" {% if estado_filtro == "all" %}selected{% endif %}>Todos</option>
+            <option value="pendiente" {% if estado_filtro == "pendiente" %}selected{% endif %}>Pendientes</option>
+            <option value="en progreso" {% if estado_filtro == "en progreso" %}selected{% endif %}>En Proceso</option>
+            <option value="completado" {% if estado_filtro == "completado" %}selected{% endif %}>Completadas</option>
+        </select>
+
+        <label for="date"><i class="fa-solid fa-calendar"></i> Fecha:</label>
+        <input type="date" id="date" name="fecha" value="{{ fecha_filtro }}">
+
+       <button type="submit"><i class="fa-solid fa-search"></i> Buscar</button>
+        <a href="/operaciones" class="action-button reset"><i class="fa-solid fa-times"></i> Limpiar Filtros</a>
+
+       <a href="/operaciones/exportar?estado=all&fecha=&formato=csv" class="action-button export">
+    <i class="fa-solid fa-file-csv"></i> Exportar CSV
+</a>
+<a href="/operaciones/exportar?estado=all&fecha=&formato=xlsx" class="action-button export-excel">
+    <i class="fa-solid fa-file-excel"></i> Exportar Excel
+</a>
+<a href="/operaciones/exportar?estado=all&fecha=&formato=pdf" class="action-button export-pdf">
+    <i class="fa-solid fa-file-pdf"></i> Exportar PDF
+</a>
+
+
+ </form>
+
+
+
+</section>
+
+
+    <!-- Tabla de operaciones -->
+    <section class="operations-list">
+        <table>
+            <thead>
+    <tr>
+        <th>ID Operación</th>
+        <th>Descripción</th>
+        <th>Estado</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+    </tr>
+</thead>
+<tbody>
+    {% for operacion in operaciones %}
+    <tr>
+        <td>{{ operacion.id_operacion }}</td>
+        <td>{{ operacion.descripcion }}</td>
+        <td>
+            <span class="status {% if operacion.estado == 'pendiente' %}pending{% elif operacion.estado == 'en progreso' %}in-progress{% else %}completed{% endif %}">
+                {{ operacion.estado }}
+            </span>
+        </td>
+        <td>{{ operacion.fecha }}</td>
+        <td>
+            <a href="/operaciones/ver/{{ operacion.id_operacion }}" class="action-button view">
+                <i class="fa-solid fa-eye"></i> Ver
+            </a>
+            <form action="/operaciones/cambiar_estado/{{ operacion.id_operacion }}" method="POST" style="display: inline;">
+                <select name="estado" class="estado-dropdown">
+                    <option value="pendiente" {% if operacion.estado == "pendiente" %}selected{% endif %}>Pendiente</option>
+                    <option value="en progreso" {% if operacion.estado == "en progreso" %}selected{% endif %}>En Proceso</option>
+                    <option value="completado" {% if operacion.estado == "completado" %}selected{% endif %}>Completada</option>
+                </select>
+                <button type="submit" class="action-button update">
+                    <i class="fa-solid fa-sync"></i> Actualizar
+                </button>
+            </form>
+            <form action="/operaciones/delete/{{ operacion.id_operacion }}" method="POST" style="display: inline;">
+                <button type="submit" class="action-button delete">
+                    <i class="fa-solid fa-trash"></i> Eliminar
+                </button>
+            </form>
+
+            <a href="/documentos/{{ operacion.id_operacion }}"><i class="fa-solid fa-folder-open"></i> Documentos</a>
+
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+
+        </table>
+
+        <div class="pagination">
+    {% if pagina > 1 %}
+    <a href="?pagina={{ pagina - 1 }}&estado={{ estado_filtro }}&fecha={{ fecha_filtro }}" class="page-link">
+        <i class="fa-solid fa-angle-left"></i> Anterior
+    </a>
+    {% endif %}
+
+    <span>Página {{ pagina }} de {{ total_paginas }}</span>
+
+    {% if pagina < total_paginas %}
+    <a href="?pagina={{ pagina + 1 }}&estado={{ estado_filtro }}&fecha={{ fecha_filtro }}" class="page-link">
+        Siguiente <i class="fa-solid fa-angle-right"></i>
+    </a>
+    {% endif %}
+</div>
+
+    </section>
+</main>
+
+    </div>
+  </body>
+</html>

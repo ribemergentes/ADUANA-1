@@ -1,0 +1,19 @@
+plataforma_aduanera/
+├── app.py                 # Archivo principal para correr la aplicación
+├── config.py              # Configuración de la aplicación
+├── models.py              # Modelos de la base de datos
+├── routes/
+│   ├── auth.py            # Rutas relacionadas con autenticación
+│   ├── cotizaciones.py    # Rutas relacionadas con cotizaciones
+│   ├── operaciones.py     # Rutas relacionadas con operaciones
+│   ├── documentos.py      # Rutas relacionadas con documentos
+│   └── reportes.py        # Rutas relacionadas con reportes
+├── templates/             # Archivos HTML
+│   ├── base.html          # Plantilla base
+│   ├── login.html         # Página de inicio de sesión
+│   ├── dashboard.html     # Página principal
+│   └── ...
+├── static/                # Archivos estáticos (CSS, JS, imágenes)
+│   ├── styles.css         # Estilos principales
+│   └── ...
+└── db.sqlite              # Base de datos SQLite
